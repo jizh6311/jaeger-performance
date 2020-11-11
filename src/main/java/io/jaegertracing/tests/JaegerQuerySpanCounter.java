@@ -71,7 +71,7 @@ public class JaegerQuerySpanCounter extends UntilNoChangeCounter {
 
         for (String service : serviceNames) {
             Request request = new Request.Builder()
-                    .url(String.format("%s/api/traces?service=%s&limit=%d", queryUrl, service, limit)).build();
+                    .url(String.format("%s/tracing/api/traces?service=%s&limit=%d", queryUrl, service, limit)).build();
             this.requests.add(request);
         }
         this.async = async;

@@ -18,19 +18,19 @@
 # Jaeger services and database in Jenkins environment
 
 # what are all the tests need to be executed
-testsToRun: 'performance,smoke'
+testsToRun: 'performance'
 
 # performance test data, two type of performance test can be executed
 # data format: [type,data]
 # 1. quick run example, 'quick,50', data: delay between spans in milliseconds
 # 2. long run example, 'long,600', data: test duration in seconds
-performanceTestData: 'quick,165'
+# performanceTestData: 'quick,165'
 
 # tracers count, number of tracers shold send spans
-tracersCount: 100
+numberOfTracers: 10
 
 # spans count for per tracer.
-spansCount: 4000
+numberOfSpans: 12
 
 # Is your test is running on OpenShift environment?
 # if you run your test on OpenShift environment, you should use Jenkins
@@ -53,7 +53,7 @@ queryInterval: -1
 sender: http
 
 # storage type, options: elasticsearch, cassandra
-storageType: elasticsearch
+#storageType: cassandra
 
 # Get spans on count from storage at the end of test
 # options: storage, jaeger-query
@@ -63,10 +63,10 @@ spansCountFrom: jaeger-query
 
 # storage hostname and port number
 storageHost: localhost
-storagePort: 9200
+storagePort: 9042
 
 # storage keyspace, used in cassandra storage
-storageKeyspace: keyspace
+#storageKeyspace: jaeger_v1_test
 
 # jaeger query hostname and port number
 jaegerQueryHost: localhost
@@ -81,9 +81,9 @@ jaegerAgentHost: localhost
 jaegerAgentPort: 6831
 
 # jaeger client java library configurations
-jaegerFlushInterval: 100
-jaegerMaxPocketSize: 0
-jaegerMaxQueueSize: 10000
+#jaegerFlushInterval: 100
+#jaegerMaxPocketSize: 0
+#jaegerMaxQueueSize: 10000
 
 # if the test is running on OpenShift environment,
 # where you want to store all the collected logs
